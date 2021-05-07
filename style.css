@@ -347,7 +347,6 @@ a:hover .image-preview {
     position: absolute;
     left: 0;
     right: 0;
-    /* padding: 0.81em 1em; */
     margin: 0;
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 0 0.05em 0.075em black;
@@ -357,8 +356,8 @@ a:hover .image-preview {
     overflow: hidden;
     display: flex;
     align-items: center;
-    /* margin: auto 0; */
     height: 100%;
+    margin: 0 15px;
 }
 
 @media screen and (min-width: 42em) {
