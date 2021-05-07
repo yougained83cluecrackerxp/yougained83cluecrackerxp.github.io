@@ -410,7 +410,7 @@ a:hover .image-preview {
 }
 
 @media screen and (max-width: 400px) {
-.nav-bar .label {
-font-size: 20px;
-}
+  .nav-bar .label {
+    font-size: 20px;
+  }
 }
