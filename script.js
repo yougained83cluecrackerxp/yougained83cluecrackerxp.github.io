@@ -309,8 +309,8 @@ function ZoomPanView(img_url, thumb_url) {
 
   $(document).ready(function() {
     window.zpview = new ZoomPanView(
-      "https://s.cdpn.io/44759/highres-dino.jpg", 
-      "https://s.cdpn.io/44759/highres-dino-thumb.jpg"
+      "guestbookfornar.png", 
+      "guestbookfornar.png"
     );
     
     $('#menu-button').on('click', function() {
