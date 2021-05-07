@@ -273,7 +273,8 @@ a:hover .image-preview {
 
 .nav-bar h2 a {
   color: black;
-  padding: 15px 15px;
+  padding: 0 15px;
+  height: 100%;
   text-decoration: none;
   font-family: "cinzel";
   background: url(https://www.runescape.com/img/rs3/global/header_play.jpg) repeat-x 0 0;
@@ -352,7 +353,6 @@ a:hover .image-preview {
     text-shadow: 0 0.05em 0.075em black;
     font-weight: 400;
     font-size: 1.5em;
-    white-space: nowrap;
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -368,4 +368,13 @@ a:hover .image-preview {
 }
 .hidden {
   display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .nav-bar .label a {
+    position: fixed;
+    width: 100%;
+    height: 60px;
+    bottom: 60px;
+  }
 }
