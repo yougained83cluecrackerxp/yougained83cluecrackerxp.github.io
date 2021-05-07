@@ -4,666 +4,146 @@
 <link rel="icon" type="image/png" href="https://runescape.wiki/images/thumb/d/de/Gud_raider_chainbody_detail.png/155px-Gud_raider_chainbody_detail.png?982b8">
 </head>
 <body>
-
-<!-- Shift + click to emulate multitouch -->
-<div class="app-wrapper">
-  <div id="controlBar" class="nav-bar">
-    <h2 class="label">The First Concert</h2>
-    <ul class="image-view-controls"> 
-      <li class="back-button">
-        <a id="home-button" href="#">
-          <!--<span class="icon-arrow-left"></span> -->
-          <img src="https://s.cdpn.io/44759/d101-logo.png" style="width:32px; margin-left:-0.5em; margin-top:-0.5em;" />
-        </a></li>
-      <!--<li><a href="#"><span class="icon-notebook"></span></a></li>-->
-      <li><a id="menu-button" href="#"><span class="icon-menu"></span></a></li>
-    </ul>
-  </div>
-  <div class="right-menu-wrapper">
-    <div id="annotationBox" class="image-nav right-box">
-      <ul id="annotation-list" class="list-menu"></ul>
-    </div>
-    <div id="contentBox" class="right-box content-box">
-      rg
-    </div> 
-  </div>
-</div> 
-
-<script type="text/javascript" src="//use.typekit.net/cji8ddj.js"></script>
-<script type="text/javascript">try{Typekit.load();}catch(e){}</script> 
+<div id="app"></div>
 
 <style>
-@import "compass/css3";
-
-
-@font-face {
-	font-family: 'appicons';
-	src:url('https://s.cdpn.io/44759/d101-icons.eot');
-	src:url('https://s.cdpn.io/44759/d101-icons.eot?#iefix') format('embedded-opentype'),
-		url('https://s.cdpn.io/44759/d101-icons.woff') format('woff'),
-		url('https://s.cdpn.io/44759/d101-icons.ttf') format('truetype'),
-		url('https://s.cdpn.io/44759/d101-icons.svg#icomoon') format('svg');
-	font-weight: normal;
-	font-style: normal;
-}
-
-.icon-pencil, .icon-notebook, .icon-image, .icon-camera, .icon-spinner, .icon-close, .icon-arrow-left, .icon-arrow-right, .icon-arrow-down, .icon-arrow-up, .icon-briefcase, .icon-cog, .icon-menu {
-	font-family: 'appicons';
-	speak: none;
-	font-style: normal;
-	font-weight: normal;
-	font-variant: normal;
-	text-transform: none;
-	line-height: 1;
-	-webkit-font-smoothing: antialiased;
-}
-.icon-pencil:before {
-	content: "\e000";
-}
-.icon-notebook:before {
-	content: "\e001";
-}
-.icon-image:before {
-	content: "\e002";
-}
-.icon-camera:before {
-	content: "\e003";
-}
-.icon-spinner:before {
-	content: "\e004";
-}
-.icon-close:before {
-	content: "\e005";
-}
-.icon-arrow-left:before {
-	content: "\e006";
-}
-.icon-arrow-right:before {
-	content: "\e007";
-}
-.icon-arrow-down:before {
-	content: "\e008";
-}
-.icon-arrow-up:before {
-	content: "\e009";
-}
-.icon-briefcase:before {
-	content: "\e00a";
-}
-.icon-cog:before {
-	content: "\e00b";
-}
-.icon-menu:before {
-	content: "\e00c";
-}
-
-html,body {
-  margin:0;
-  padding:0;
-  width:100%;
-  height:100%; 
-}
- 
-body {
-  background: url('https://s.cdpn.io/44759/grey_wash_wall.png');
-  font-family:"din-condensed-web",sans-serif;
-  font-size:0.8em;
-}
-
-.app-wrapper {
-  overflow:hidden;
-  position:absolute;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-}
-
-.pan-image {
-  @include translate(0, 0);  
-  @include backface-visibility(hidden);
-  @include box-sizing(border-box);
-  @include transition(all 0.35s cubic-bezier(0,0,0,1));
-  @include transform-origin(0, 0);
-
-  display:block;
-  width:1px;height:1px;
-  position:absolute;
-  width:100%;
-  z-index:1;
-  margin:auto;
-  
-}
-
-.pan-image:before {
-  position:absolute;
-  content: "";
-  top:0;left:0;right:0;bottom:0;
-  border:2em solid rgba(0,0,0,0.15);
-} 
-
-.pan-image:after {
-  position:absolute;
-  content: "";
-  top:-8em;left:-8em;right:-8em;bottom:-8em;
-  border:8em solid #000; 
-}
-
-.pan-image img {
-  @include box-sizing(border-box);
-  width:100%;
-}
-
-.right-menu-wrapper {
-  width:33.33333%;
-  max-width:20em;
-  min-width:16.6666666666667em;
-  position:absolute;
-  right:0;
-  top:4.16666666666667em;
-  z-index:48;
-  font-size:1.2em;
-}
-
-
-.right-box {
-  
-  @include transition(all 0.35s cubic-bezier(0,0,0,1));
-  @include translate(110%,0);
-  @include box-shadow(0 0 1em #000);
-  @include box-sizing(border-box);
-  
-  background: rgba(0,0,0,0.75);
-  border-left:1px solid #000;
-  position:absolute;
-  width:100%;
-}
-
-.right-box.on {
-  @include translate(0,0);
-}
-
-.image-nav ul {
-  margin:0;
-  padding:0;
-  list-style:none;
-}
-
-.image-nav ul li {
-  border-bottom:1px solid #000;
-}
-
-.image-nav ul li a, 
-.content-box {
-  display:block;
-  padding:1.5em;
-  color:#fff;
-  text-decoration:none;
-  position:relative;
-  cursor:pointer;
-}
-
-.image-nav ul li a:hover {
-  background:rgba(255,255,255,0.15);
-}
-
-.image-nav ul li a span {
-  display:block;
-}
-
-.image-preview {
-  position:absolute;
-  top:0;
-  left:0;
-  bottom:0;
-  width:4em;
-  background:url(https://s.cdpn.io/44759/highres-dino-thumb.jpg) no-repeat;
-  border-right:1px solid #000;
-  @include filter(grayscale(80%));
-}
-
-a:hover .image-preview {
-  @include filter(none);
-}
-
-.image-label {
-  margin-left:4em;
-}
-
-.content-box {
-  font-size:1.1em;
-  line-height:1.42em;  
-}
-  
-.nav-bar {
-  @include box-shadow(0 0.2em 0.5em rgba(0,0,0,0.5));
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  height:4em;
-  background:rgba(0,0,0,0.75);
-  font-size:1.25em;
-  border-bottom:1px solid #000;
-  z-index:50;
-}
-
-.nav-bar ul {
-  list-style:none;
-  margin:0;
-  padding:0;
-  text-align:right;
-}
-
-.nav-bar ul li {
-  display:inline-block;
-  border-left:1px solid #000;
-  margin-right:-6px;
-}
-
-.nav-bar ul li:last-child {
-  margin-right:0;
-}
-
-.nav-bar ul li.back-button {
-  position:absolute;
-  left:0;
-  width:4em;
-  border-right: 1px solid #000;
-  border-left:none;
-  margin-right:0;
-}
-
-.nav-bar ul li:hover a {
-  border-color: rgba(222,222,222,0.35);
-}
-
-.nav-bar ul li a.active {
-  color: #ffdb05;
-  border-color:rgba(255,255,255,0.15);
-}
-
-.nav-bar ul li a {
-  @include box-sizing(border-box);
-  display:block;
-  color:rgba(255,255,255,0.9);
-  text-shadow:0 0.1em 0 rgba(0,0,0,0.5);
-  text-decoration:none;
-  padding:1.5em;
-  width:4em;
-  height:4em;
-  border:0.25em solid transparent;
-  position:relative;
-}
-
-.nav-bar ul li a span {
-  width:1em;
-  height:1em;
-  margin:auto;
-  display:block;
-  position:absolute;
-  top:0;
-  bottom:0;
-  left:0;
-  right:0;
-  font-size:0.8em;
-}
-
-.nav-bar .label {
-  font-size:1em;
-  position:absolute;
-  left:2.66666666666667em;
-  right:2.66666667em;
-  padding:0.81em 1em;
-  margin:0;
-  color:rgba(255,255,255,0.9);
-  text-shadow:0 0.05em 0.075em rgb(0,0,0);
-  font-weight:400;
-  font-size:1.5em; 
-  white-space:nowrap;
-  overflow:hidden;
-}
-
-@media screen and (min-width:42em) {
-  body {
-   font-size:0.9em; 
+.wrapper {
+  position: fixed
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
   }
-}
+.overlay {
+  background-color: #eaeaea
+  position: absolute
+  left: 0
+  top: 0
+  width: 100%
+  height: 100%
+  z-index: 0
+  }
+.map {
+  position: absolute
+  z-index: 10
+  left: 0
+  top: 0
+  }
+  .map img {
+    display: block
+    width: 100%
+    }
+    
+h1 {
+  position: absolute
+  display: block
+  left: 0
+  bottom: 0
+  z-index: 100
+  font-family: Roboto, Helvetica, sans-serif
+  font-weight: 300
+  color: #121212;
+  }
 
-
-.hidden {
-  display:none;
-}
 </style>
 
 <script>
+const { render } = ReactDOM;
+const { Component } = React;
 
-// Hammer.plugins.showTouches();
+class Scroller extends Component {
+  scale = 1;
+  startScale = 1;
+  
+  componentDidMount() {
+    this.dragInit();
+    this.wheelInit();
+    this.touchInit();
+  }
+  
+  getMapRef = b => this.map = b;
+  getWrapperRef = b => this.wrapper = b;
 
-// if(!Hammer.HAS_TOUCHEVENTS && !Hammer.HAS_POINTEREVENTS) {
-//   Hammer.plugins.fakeMultitouch();
-// }
+  dragInit = () => {
+    Draggable.create(this.map, {
+      type:"x,y", 
+      edgeResistance:0.65, 
+      bounds: this.wrapper, 
+      throwProps:true
+    });
+  };
 
-function ZoomPanView(img_url, thumb_url) {
-  
-  this.el_wrapper = $("<div />", {
-    class: 'pan-image'
-  });
-  this.el_img = $("<img/>");
-  this.el_imgNav = $('#annotation-list');
-  this.img_src = img_url;
-  this.thumb_src = thumb_url;
-  this.thumbScale = 1;
-  this.actualWidth = 0;
-  this.actualHeight = 0;
-  this.scaleX = 1;
-  this.scaleY = 1;
-  this.translateX = 0;
-  this.translateY = 0;
-  this.centerMatrix = { };
-  this.annotations = [
-    {
-      id: "ann2",
-      title: "Prehistoric Koala",
-      x: 2300,
-      y: 2150,
-      scale: 1,
-      content: "As you can see, the Prehistoric Koala is frightened by the mosh pit and running in a separate direction. Most likely towards Australia."
-    },{
-      id: "ann3",
-      title: "Thrashing",
-      x: 3450,
-      y: 1450,
-      scale: 0.9,
-      content: "It is commonly believed that thrash's origins were rooted in the mid to late 70's; this is not the case. Here an Ankylosaur is seen thrashing in the late Cretaceous period."
-    },{
-      id: "ann4",
-      title: "Mosh Pit",
-      x: 1400,
-      y: 1450,
-      scale: 0.3,
-      content: "Though it may look scary, most of these dinosaurs are having the best time."
-    },{
-      id: "ann5",
-      title: "Invisible Keyboard",
-      x: 4000,
-      y: 850,
-      scale: 0.8,
-      content: "After millions of years of evolution, Tyrannosaurs were perfectly suited as keyboardists and lead singers."
-    }
-  ];
-  
-  var self = this;
-  
-  this.init = function() {
-    this.el_img.attr("src", this.img_src).load(function() {
-        
-        var win_width = $(window).width();
-        
-        self.actualWidth = this.width;
-        self.actualHeight = this.height;
-        //console.log("Actual dimensions: " + this.width + "x" + this.height);
-      
-        self.thumbScale = 800/this.width;
-      
-        self.scaleX = self.scaleY = win_width/self.actualWidth;
-        //self.translateX = (-self.actualWidth/2)+(win_width/2);
-         
-        var defaultTrans = self.getResetTransform(); 
-        self.setTransform(defaultTrans.scale, defaultTrans.translateX, defaultTrans.translateY);
-  
-        
-        // set the css an add to DOM
-        self.el_wrapper.css({
-          'width' : self.actualWidth+'px',
-          'height' : self.actualHeight+'px'
-        }).append(this).appendTo('.app-wrapper'); 
-      
-        // populate the annotation list
-        for(i=0; i<self.annotations.length; i++) {
-          var ann = self.annotations[i];        
-          var annLink = $("<a />", {
-            class: 'annotation-link',
-            id: ann.id
-          });
-          annLink.append(
-              '<span class="image-preview" style="'
-              + 'background-image:url('+ self.thumb_src+ '); '
-              + 'background-position: ' + (-ann.x*self.thumbScale) + 'px '+ (-ann.y*self.thumbScale) + 'px' 
-            + '"></span>'
-            + '<span class="image-label">'+ann.title+'</span>'
-          );
-          annLink.data('xpos',ann.x);
-          annLink.data('ypos',ann.y);
-          annLink.data('scale',ann.scale);
-          annLink.data('content-id', ann.id+'-content');
-          $('body').append('<div id="'+ann.id+'-content" class="hidden">'+ann.content+'</div>');
-          annLink.on('tap click', function() { 
-            $('.image-nav').removeClass('on');
-            $('.pan-image').css({
-              '-webkit-transition': 'all 2s cubic-bezier(.5,0,.5,1)'
-            });
-             
-            var annID = $(this).data('content-id');
-            setTimeout(function() {
-              $('.pan-image').css({
-                '-webkit-transition': 'all 0.35s cubic-bezier(0,0,0,1)'
-              });
-              $('#contentBox').html($('#'+annID).html()); 
-              $('#contentBox').addClass('on');
-            },2000);
-            self.zoomToLocation($(this).data('xpos'),$(this).data('ypos'),$(this).data('scale'));
-          });
-          $('<li />').append(annLink).appendTo(self.el_imgNav);
+  zoom = y => {
+    const dur = .15;
+    const ease = Cubic.easeOut;
+    const step = 0.1;
+    const max = 2.5;
+    const min = 1;
+    const scale = this.scale = ((prev) => {
+      if (y < 0) {
+        if (prev <= min) {
+          return min;
         }
         
-       
-        // touch events on body
-        var hammertime = Hammer(document.body, { 
-          transform_always_block: true,
-          transform_min_scale: 0.5
-        });
-      
-        var startTransform, endTransform;
-      
-        var midX = 0;
-        var midY = 0; 
-      
-        var isTransitioning;
-       
-        hammertime.on('touch drag transform doubletap', function(ev) {
-          switch(ev.type) {
-              case 'touch':  
-                startTransform = { 
-                  scale: self.scaleX, 
-                  translateX: self.translateX, 
-                  translateY: self.translateY
-                };
-                endTransform = { 
-                  scale: self.scaleX, 
-                  translateX: self.translateX, 
-                  translateY: self.translateY
-                };
-              break;  
-      
-              case 'drag':
-                  endTransform.translateX = (startTransform.translateX+ev.gesture.deltaX);
-                  endTransform.translateY = (startTransform.translateY+ev.gesture.deltaY);
-                  ev.gesture.preventDefault();
-              break;
-              
-              case 'doubletap':
-                var scaleAmount = self.scaleX*2.5;
-                var isInside = self.isPointInside(ev.gesture.touches[0].pageX,
-                  ev.gesture.touches[0].pageY);
-              
-                  if(!isInside) {
-                    endTransform = self.getResetTransform();
-                  } else {
-                    endTransform = self.getTransformAfterScale(
-                      ev.gesture.touches[0].pageX,
-                      ev.gesture.touches[0].pageY,
-                      scaleAmount
-                    );
-                  }
-       
-              break;
-               
-              case 'transform':
-                  if(ev.gesture.touches.length==2) {
-                    midX = (ev.gesture.touches[0].pageX+ev.gesture.touches[1].pageX)/2;
-                    midY = (ev.gesture.touches[0].pageY+ev.gesture.touches[1].pageY)/2;
-                  }
-                  endTransform = self.getTransformAfterScale(
-                      midX,
-                      midY,
-                      (startTransform.scale*ev.gesture.scale)
-                    );
-              startTransform.translateX = endTransform.translateX;
-                  startTransform.translateY = endTransform.translateY;
-                  ev.gesture.preventDefault();
-              break;
-          }; 
-       
-          self.setTransform(
-              endTransform.scale, 
-              endTransform.translateX, 
-              endTransform.translateY
-            );
+        return prev - step;
+      } else {
+        if (prev >= max) {
+          return max;
+        }
+        
+        return prev + step;
+      } 
+    })(this.scale)
+    
+    TweenMax.to(this.map, dur, {
+      scale,
+      ease
+    })
+    
+    console.log(scale);
+  };
 
-          
-          //console.log(self.getBoundingBox());
-        });
-      
-        $('body').bind('mousewheel',
-          function(event, delta, deltaX, deltaY) {
-            var factor = deltaY > 0 ? 1.05 : 0.95;
-            var et = self.getTransformAfterScale(event.pageX, event.pageY, self.scaleX*factor);
-            self.setTransform(et.scale,et.translateX,et.translateY);
-          }
-        );
-    });
+  wheelInit = () => {
+    this.wrapper.addEventListener('wheel', e => {
+      this.zoom(e.deltaY)
+    })
   };
   
-  this.getVirtualValue = function(screenVal) {
-    return screenVal/this.scaleX;
+  touchInit = () => {
+    this.hammertime = Hammer(this.map)
+      .on("transformstart", e => {
+          this.startScale = this.map.scaleX();
+      }).on("transform", e => {
+        console.log(this.startScale * e.gesture.scale)
+          TweenMax.to(this.map, .3, {
+            scale: this.startScale * e.gesture.scale
+          })
+      })
   };
   
-  this.getScreenValue = function(virtualVal) {
-    return virtualVal*this.scaleX; 
-  };
-   
-  this.getTransformString = function() {
-    return "matrix("+this.scaleX+", 0, 0, "+this.scaleY+", "+this.translateX+", "+this.translateY+")";
-  };
-  
-  
-  
-  this.getTransformAfterScale = function(x, y, scale) { 
-
-    scale = Math.max(Math.min(scale,2), 0.05); // TODO: update with min / max options
-  
-    // find cursor offset within the element
-    x -= this.translateX;
-    y -= this.translateY;
-   
-    // find the final position of the coordinate after scaling
-    var xf = x * scale / this.scaleX;
-    var yf = y * scale / this.scaleY;
-  
-    // find the difference between the initial and final position
-    // and add the difference to the current position.
-    var dx = this.translateX + x - xf;
-    var dy = this.translateY + y - yf;
-  
-    return {
-      scale: scale,
-      translateX: dx,
-      translateY: dy
-    };
-  }; 
-  
-  this.getBoundingBox = function() {
-    var c_width = this.scaleX * this.actualWidth;
-    var c_height = this.scaleY * this.actualHeight;
-    var c_top = this.translateY;
-    var c_left = this.translateX;
-   
-    //console.log(c_translateX);
+  render() {
+    const {
+      getMapRef,
+      getWrapperRef
+    } = this;
     
-    return {
-      top: c_top,
-      right: (c_left+c_width),
-      bottom: (c_top+c_height),
-      left: c_left
-    }
-  };
-  
-  this.getVisibleBox = function() {
-    
-  };
-  
-  this.getResetTransform = function() {
-    var targetScale = $(window).width()/this.actualWidth;
-    var targetTranslateY = $(window).height()/2-this.actualHeight*targetScale/2;
-    return {
-      scale: targetScale,
-      translateX: 0,
-      translateY: targetTranslateY
-    };
-  };
-  
-  this.zoomToLocation = function(x,y,scale) {
-    var finalWidth = this.actualWidth * scale;
-    var finalHeight = this.actualHeight * scale;
-    var finalX = (-x*scale)+$(window).width()/2;
-    var finalY = (-y*scale)+$(window).height()/2;
-    this.setTransform(scale,finalX,finalY);
-  };
-  
-  this.isPointInside = function(x,y) {
-    var rect = this.getBoundingBox();
-    return (x > rect.left && x < rect.right && y > rect.top && y < rect.bottom )
-  };
-  
-  this.setTransform = function(scale, transX, transY) {
-    this.translateX = transX;
-    this.translateY = transY;
-    this.scaleX = scale;
-    this.scaleY = scale;
-    
-    var transformString = this.getTransformString();
-    
-    this.el_wrapper.css({
-          'transform' : transformString,
-          '-webkit-transform' : transformString,
-          '-moz-transform' : transformString,
-          '-ms-transform' : transformString,
-          '-o-transform' : transformString
-    });
-  };
-  
-  this.init();
- 
+    return (
+      <div className="wrapper" ref={getWrapperRef}>
+        <h1>Drag the map & try to scroll.</h1>
+        <div className="map" ref={getMapRef}>
+          <img className="map__img" 
+            src="https://i.kinja-img.com/gawker-media/image/upload/s--DVFlf5iJ--/c_scale,f_auto,fl_progressive,q_80,w_800/17g5gqe73yvkujpg.jpg"/>
+        </div>
+        <div className="overlay" />
+      </div>
+    )
+  }
 }
 
-  $(document).ready(function() {
-    window.zpview = new ZoomPanView(
-      "guestbookfornar.png", 
-      "guestbookfornar.png"
-    );
-    
-    $('#menu-button').on('click', function() {
-      $('#contentBox').removeClass('on');
-      $('.image-nav').toggleClass('on');
-      $(this).toggleClass('active');
-    });
-    
-    $('#home-button').on('click', function() {
-      alert("This doesn't do anything yet!");
-    });
-  });
-
+render(
+  <Scroller/>,
+  document.querySelector('#app')
+);
 </script>
 </body>
 </html>
