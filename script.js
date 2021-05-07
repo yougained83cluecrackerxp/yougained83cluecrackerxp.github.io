@@ -70,7 +70,7 @@ function ZoomPanView(img_url, thumb_url) {
         //self.translateX = (-self.actualWidth/2)+(win_width/2);
          
         var defaultTrans = self.getResetTransform(); 
-        self.setTransform(defaultTrans.scale, defaultTrans.translateX, defaultTrans.translateY);
+        self.setTransform(defaultTrans.scale, defaultTrans.translateX, 0);
   
         
         // set the css an add to DOM
