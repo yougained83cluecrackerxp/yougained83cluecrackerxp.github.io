@@ -251,14 +251,15 @@ a:hover .image-preview {
   font-size: 1.25em;
   border-bottom: 1px solid #000;
   z-index: 50;
-}
-
-.nav-bar h2 {
-  color: #FFFF00;
   font-family: "cinzel";
+  display: flex;
 }
 
-.nav-bar h2 a {
+.nav-bar p {
+  color: #FFFF00;
+}
+
+.nav-bar a {
   color: black;
   background-color: color: #FFFF00;
 }
