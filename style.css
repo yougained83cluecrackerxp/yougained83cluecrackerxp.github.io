@@ -269,6 +269,8 @@ a:hover .image-preview {
   padding: 0;
   font-family: "cinzel";
   font-weight: bold;
+  overflow-wrap: anywhere;
+  text-align: center;
 }
 
 .nav-bar h2 p b {
