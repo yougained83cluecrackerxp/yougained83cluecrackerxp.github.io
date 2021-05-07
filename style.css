@@ -239,19 +239,23 @@ a:hover .image-preview {
 }
 
 .nav-bar {
-  -moz-box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.5);
-  -webkit-box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.5);
-  box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.5);
-  position: fixed;
-  bottom: 0; 
-  left: 0;
-  right: 0;
-  height: 4em;
-  background: rgba(0, 0, 0, 0.75);
-  font-size: 1.25em;
-  border-bottom: 1px solid #000;
-  z-index: 50;
-  font-family: "cinzel";
+    -moz-box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0.2em 0.5em rgba(0, 0, 0, 0.5);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4em;
+    background: url(https://www.runescape.com/img/rs3/global/header_bg_set.png) no-repeat left top,url(https://www.runescape.com/img/rs3/global/header_bg_set.png) no-repeat right center,url(https://www.runescape.com/img/rs3/global/header_bg_set.png) repeat-x center bottom;
+    font-size: 1.20em;
+    border-bottom: 1px solid #000;
+    z-index: 50;
+    font-family: "cinzel";
+    font-variant: small-caps;
+    height: 60px;
+    border-top: 1px solid #39444b;
+    background-color: #1f2325;
 }
 
 .nav-bar h2 {
@@ -260,12 +264,19 @@ a:hover .image-preview {
 }
 
 .nav-bar h2 p {
-  color: #FFFF00;
+  color: #e1bb34;
+  margin: 0;
+  padding: 0;
+  font-family: "cinzel";
+  font-weight: bold;
 }
 
 .nav-bar h2 a {
   color: black;
-  background-color: color: #FFFF00;
+  padding: 15px 15px;
+  text-decoration: none;
+  font-family: "cinzel";
+  background: url(https://www.runescape.com/img/rs3/global/header_play.jpg) repeat-x 0 0;
 }
 
 .nav-bar ul {
@@ -332,18 +343,22 @@ a:hover .image-preview {
 }
 
 .nav-bar .label {
-  font-size: 1em;
-  position: absolute;
-  left: 2.66666666666667em;
-  right: 2.66666667em;
-  padding: 0.81em 1em;
-  margin: 0;
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 0.05em 0.075em black;
-  font-weight: 400;
-  font-size: 1.5em;
-  white-space: nowrap;
-  overflow: hidden;
+    font-size: 1em;
+    position: absolute;
+    left: 0;
+    right: 0;
+    /* padding: 0.81em 1em; */
+    margin: 0;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 0 0.05em 0.075em black;
+    font-weight: 400;
+    font-size: 1.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    /* margin: auto 0; */
+    height: 100%;
 }
 
 @media screen and (min-width: 42em) {
